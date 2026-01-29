@@ -29,3 +29,43 @@ document.addEventListener('keydown', function (e) {
     closeModal();
   }
 });
+
+///////////////////////////////////////
+// Selecting and Deleting Elements
+const header = document.querySelector('.header');
+const allSections = document.querySelectorAll('.section');
+console.log(allSections);
+
+document.getElementById('section--1');
+const allButtons = document.getElementsByTagName('button');
+
+console.log(allButtons);
+
+console.log(document.getElementsByClassName('btn'));
+
+// Creating and Inserting Elements
+// .insertAdjacentHTML
+
+const message = document.createElement('div');
+// console.log(message);
+
+message.classList.add('cookie-message');
+// message.textContent =
+//   'We use cookies for improved functionality and analytics.';
+message.innerHTML =
+  'We use cookies for improved functionality and analytics. <button class="btn btn--close-cookie">Got it!</button>';
+// console.log(message);
+// header.prepend(message);
+header.append(message);
+// header.append(message.cloneNode(true));
+
+// header.before(message);
+// header.after(message);
+
+// Delete Elements
+document
+  .querySelector('.btn--close-cookie')
+  .addEventListener('click', function () {
+    //message.remove();
+    message.parentElement.removeChild(message);
+  });
